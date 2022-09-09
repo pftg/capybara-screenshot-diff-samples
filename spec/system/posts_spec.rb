@@ -10,5 +10,14 @@ RSpec.describe "Posts", type: :system do
       visit '/posts'
       screenshot "posts"
     end
+
+    it "should raise error with changes" do
+      visit '/posts'
+      click_on 'New post'
+      fill_in 'Title', with: 'New Post'
+      fill_in 'Body', with: 'About life'
+
+      screenshot "posts"
+    end
   end
 end
