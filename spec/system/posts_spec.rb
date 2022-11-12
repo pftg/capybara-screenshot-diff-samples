@@ -19,5 +19,24 @@ RSpec.describe "Posts", type: :system do
 
       screenshot "posts"
     end
+
+    it "check empty new post form" do
+      visit '/posts'
+
+      click_on 'New post'
+
+      screenshot "new_post", skip_area: "form"
+    end
+
+    it "not raise error with changes in the skip_area" do
+      visit '/posts'
+
+      click_on 'New post'
+      fill_in 'Title', with: 'New Post'
+      fill_in 'Body', with: 'About life'
+      click_on 'Create Post'
+
+      screenshot "new_post", skip_area: "form"
+    end
   end
 end
