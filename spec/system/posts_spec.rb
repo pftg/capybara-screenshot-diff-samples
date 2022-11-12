@@ -34,7 +34,6 @@ RSpec.describe "Posts", type: :system do
       click_on 'New post'
       fill_in 'Title', with: 'New Post'
       fill_in 'Body', with: 'About life'
-      click_on 'Create Post'
 
       screenshot "new_post", skip_area: "form"
     end
