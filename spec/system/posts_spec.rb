@@ -37,5 +37,15 @@ RSpec.describe "Posts", type: :system do
 
       screenshot "new_post", skip_area: "form"
     end
+
+    it "supports crop by element" do
+      visit '/posts'
+
+      click_on 'New post'
+      fill_in 'Title', with: 'New Post'
+      fill_in 'Body', with: 'About life'
+
+      screenshot "posts-cropped_form-vips", crop: 'form', driver: :vips
+    end
   end
 end
